@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      background-color: #ff6666; 
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    li {
+      display: inline-block;
+    }
+    a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+    }
+    a:hover {
+      background-color: #ffc2c2; /* Light red accent on hover */
+    }
+
+    /* Drawer styles */
+    .drawer {
+      display: none;
+      width: min-content;
+      flex-direction: row;
+      justify-content: left;
+    }
+
+    .subtitle {
+        font-size: xx-large;
+        font-weight: 600;
+        letter-spacing: 0ch;
+        margin: 20px 0px;
+    }
+
+    .content {
+        font-size:large;
+        font-weight: 400;
+        max-width: 100%; /* Adjust as needed */
+        word-wrap: break-word;
+    }
+
+    .clickme{
+        background-color: #ff6666 ;
+        width: fit-content;
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0px;
+        border-color: white;
+        border-radius: 20px;
+    }
+
+    
+    @media only screen and (max-width: 600px) {
+      .drawer {
+        display: block;
+      }
+      ul {
+        display: none;
+      }
+      .drawer.open + ul {
+        display: flex;
+        flex-direction: column;
+      }
+      li {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="drawer">
+    <a class="hamburger" href="javascript:void(0);" onclick="toggleNavbar()">☰</a>
+  </div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Order</a></li>
+    <li><a href="#">Food</a></li>
+    <li><a href="#">Restaurant</a></li>
+    <li><a href="#">Testimonials</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+</nav>
+
+<div style="height: 95vh; width: 100%; display: flex; flex-direction: row;" >
+    <div style="display: flex; flex-direction: column; align-items: left; width: 50%; height: 100%; justify-content: center; margin: 0px 20px;" >
+        <h3 class="subtitle">LOREM IPSUM</h3>
+        <h4 class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+            id est vitae dolor rhoncus tristique. Maecenas metus quam,
+            rhoncus euismod lorem in, sollicitudin viverra eros. Donec
+            dictum luctus quam ut tristique. Curabitur nec faucibus purus.
+            Quisque congue sem nec justo mollis, in tincidunt erat pretium.
+            Sed pulvinar, massa ac porta viverra.
+        </h4>
+        <button class="clickme"> <h3 style="margin: 0%; color:white;"> Click me</h3> </button>
+    </div>
+    <div style="width: 50%; height: 95vh;">
+        <img src="assets\pexels-robin-stickel-70497.jpg" alt="" style="width: 100%; height: 100%;">
+    </div>
+</div>
+
+<script>
+  function toggleNavbar() {
+    var drawer = document.querySelector('.drawer');
+    drawer.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
